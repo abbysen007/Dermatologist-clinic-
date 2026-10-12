@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display-primary: "Fredoka", "Quicksand", "BD Supper", sans-serif;
+  --font-display-secondary: "Palatino", "Lora", Georgia, serif;
+  --font-interface-body: "Barlow", sans-serif;
+  --font-numerical-data: "Montserrat", sans-serif;
+
+  /* Premium soothing palette colors */
+  --color-cream-soft: #fcf9f5;
+  --color-cream-warm: #faf5ee;
+  --color-mint-light: #f0fbf7;
+  --color-mint-soft: #e3f7f0;
+  --color-mint-accent: #0f9f75;
+  --color-mint-dark: #0a694d;
+  --color-sky-light: #f0f7fc;
+  --color-sky-soft: #e2eff9;
+  --color-sky-accent: #3b82f6;
+  --color-charcoal-clinical: #222b27;
+}
+
+/* Animations and helpers */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite reverse;
+}
+
+.animate-marquee:hover, .animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Base resets or styling overlays */
+body {
+  font-family: var(--font-interface-body);
+  background-color: #f7faf8;
+  background-image: 
+    radial-gradient(at 10% 12%, rgba(15, 159, 117, 0.14) 0px, transparent 45%),
+    radial-gradient(at 90% 8%, rgba(59, 130, 246, 0.14) 0px, transparent 45%),
+    radial-gradient(at 50% 30%, rgba(250, 245, 238, 0.85) 0px, transparent 50%),
+    radial-gradient(at 15% 60%, rgba(15, 159, 117, 0.12) 0px, transparent 45%),
+    radial-gradient(at 85% 65%, rgba(245, 158, 11, 0.10) 0px, transparent 40%),
+    radial-gradient(at 50% 88%, rgba(59, 130, 246, 0.12) 0px, transparent 50%);
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--color-charcoal-clinical);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream-soft);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Screen-mode hidden for print section */
+#print-section {
+  display: none !important;
+}
+
+/* Printable Sheet styling & media queries */
+@media print {
+  /* Hide the entire standard app container */
+  #root,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Make sure our print-section is full-screen and visible */
+  #print-section {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+
+  body, html {
+    background: white !important;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Optimize text & tables for physical printing */
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+  
+  th, td {
+    border: 1px solid #000 !important;
+    padding: 8px !important;
+    text-align: left !important;
+  }
+  
+  .border-b-2 {
+    border-bottom: 2px solid #000 !important;
+  }
+
+  .border-b-4 {
+    border-bottom: 4px solid #000 !important;
+  }
+
+  .border-t {
+    border-top: 1px solid #000 !important;
+  }
+
+  .border-2 {
+    border: 2px solid #000 !important;
+  }
+}
+

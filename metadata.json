@@ -1,0 +1,8 @@
+{
+  "name": "Remix Dr. Rituparna Manna - Pediatrician in Kalyani",
+  "description": "Top-rated dermatologist and clinical skin specialist in Kalyani, West Bengal. Book skin consultations, access digital prescriptions, track skin recovery progress, and explore expert skincare guides.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
